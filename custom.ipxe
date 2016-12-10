@@ -12,7 +12,6 @@ goto custom_exit
 
 :load_VRM
 san-boot --no-describe http://nas.thuis.loc/boot/VRM.ISO
-boot || goto custom_exit
 
 :custom_exit
 chain utils.ipxe
