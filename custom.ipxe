@@ -3,7 +3,7 @@
 :custom
 clear choice
 menu Oppergod's Menu
-item --gap This is the first sub menu
+item --gap ISO Images
 item load_VRM ${space} Loading Veeam Recovery Image
 choose choice || goto custom_exit
 echo ${cls}
