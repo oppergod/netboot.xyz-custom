@@ -5,7 +5,7 @@ clear choice
 menu Oppergod's Menu
 item --gap This is the first sub menu
 item --key V load_VRM ${space} Start Veeam Recovery Image
-item --key G load_GP ${space} Start GParted
+item --key G load_GP ${space} Start GParted 0.27.0-1
 choose choice || goto custom_exit
 echo ${cls}
 goto ${choice}
@@ -15,7 +15,7 @@ goto custom_exit
 san-boot --no-describe http://nas.thuis.loc/boot/VRM.ISO
 
 :load_GP
-san-boot --no-describe http://nas.thuis.loc/boot/GP.ISO
+san-boot --no-describe http://nas.thuis.loc/boot/gparted-live-0.27.0-1-amd64.iso
 
 :custom_exit
 chain utils.ipxe
