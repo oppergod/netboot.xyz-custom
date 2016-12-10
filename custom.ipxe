@@ -11,8 +11,7 @@ goto ${choice}
 goto custom_exit
 
 :load_VRM
-kernel https://boot.netboot.xyz/memdisk raw iso
-initrd http://nas.thuis.loc/VRM
+initrd http://nas.thuis.loc/VRM.ISO
 boot || goto custom_exit
 
 :custom_exit
