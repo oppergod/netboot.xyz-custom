@@ -11,7 +11,7 @@ goto ${choice}
 goto custom_exit
 
 :load_VRM
-initrd http://nas.thuis.loc/VRM.ISO
+sanboot http://nas.thuis.loc/VRM.ISO
 boot || goto custom_exit
 
 :custom_exit
