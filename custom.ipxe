@@ -12,10 +12,10 @@ goto ${choice}
 goto custom_exit
 
 :load_VRM
-san-boot --no-describe http://nas.thuis.loc/boot/VRM.ISO
+sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO
 
 :load_GP
-san-boot --no-describe http://nas.thuis.loc/boot/gparted-live-0.27.0-1-amd64.iso
+sanboot --no-describe http://nas.thuis.loc/boot/gparted-live-0.27.0-1-amd64.iso
 
 :custom_exit
 chain utils.ipxe
