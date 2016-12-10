@@ -1,12 +1,20 @@
 #!ipxe
-###
-### netboot.xyz-custom menu
-###
 
-:start
-echo Hello world!
-sleep 10
+:custom
+clear choice
+menu Oppergod's Menu
+item --gap This is the first sub menu
+item load_VRM ${space} Loading Veeam Recovery Image
+choose choice || goto custom_exit
+echo ${cls}
+goto ${choice}
 goto custom_exit
 
+:load_VRM
+kernel https://boot.netboot.xyz/memdisk raw iso
+initrd http://nas.thuis.loc/VRM
+boot || goto custom_exit
+
 :custom_exit
-exit 0
+chain utils.ipxe
+exit
