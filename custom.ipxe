@@ -3,15 +3,15 @@
 :custom
 clear choice
 menu Oppergod's Menu
-item --gap ISO Images
-item load_VRM ${space} Loading Veeam Recovery Image
+item --gap This is the first sub menu
+item --key V load_VRM ${space} Start Veeam Recovery Image
 choose choice || goto custom_exit
 echo ${cls}
 goto ${choice}
 goto custom_exit
 
 :load_VRM
-sanboot --no-describe http://nas.thuis.loc/VRM.ISO
+san-boot --no-describe http://nas.thuis.loc/boot/VRM.ISO
 boot || goto custom_exit
 
 :custom_exit
