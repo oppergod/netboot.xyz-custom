@@ -17,15 +17,21 @@ sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO ||
 goto custom
 
 :load_GANDALF
-imgfetch http://nas.thuis.loc/boot/GANDALF.ISO
-chain http://nas.thuis.loc/boot/memdisk iso raw || 
-goto custom
+set util_path nas.thuis.loc/boot/GANDALF.ISO
+set util_file GANDALF.ISO
+goto boot_memdisk
 
 :load_WDS
 set wdsserver:ipv4 192.168.200.20
 set netX/next-server ${wdsserver}
 chain tftp://${wdsserver}/Boot\x64\wdsnbp.com ||
 goto custom
+
+:boot_memdisk
+imgfree
+kernel ${memdisk} iso raw
+initrd --name ${util_file} http://${util_path}
+boot
 
 :custom_exit
 chain utils.ipxe
