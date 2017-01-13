@@ -4,12 +4,17 @@
 clear choice
 menu Oppergod's Menu
 item --gap Tools
+item --key P load_PESE ${space} Start Windows [P]E SE
 item --key W load_WDS ${space} Start [W]indows Deployment Services (WDS)
 item --key V load_VRM ${space} Start [V]eeam Recovery Image
 choose choice || goto custom_exit
 echo ${cls}
 goto ${choice}
 goto custom_exit
+
+:load_PESE
+sanboot --no-describe http://nas.thuis.loc/boot/winpese.iso ||
+goto custom
 
 :load_VRM
 sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO ||
