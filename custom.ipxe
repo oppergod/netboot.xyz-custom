@@ -4,6 +4,7 @@
 clear choice
 menu Oppergod's Menu
 item --gap Tools
+item --key W load_WDS ${spcae} Start Windows Deployment Services (WDS)
 item --key V load_VRM ${space} Start Veeam Recovery Image
 choose choice || goto custom_exit
 echo ${cls}
@@ -12,6 +13,10 @@ goto custom_exit
 
 :load_VRM
 sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO
+
+:load_WDS
+set netX/next-server 192.168.200.20
+chain tftp://192.168.200.20/boot/x86/wdsnbp.com
 
 :custom_exit
 chain utils.ipxe
