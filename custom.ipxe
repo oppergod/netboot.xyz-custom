@@ -4,8 +4,9 @@
 clear choice
 menu Oppergod's Menu
 item --gap Tools
-item --key W load_WDS ${space} Start Windows Deployment Services (WDS)
-item --key V load_VRM ${space} Start Veeam Recovery Image
+item --key G load_GANDALF ${space} Start [G]andalf ISO 
+item --key W load_WDS ${space} Start [W]indows Deployment Services (WDS)
+item --key V load_VRM ${space} Start [V]eeam Recovery Image
 choose choice || goto custom_exit
 echo ${cls}
 goto ${choice}
@@ -13,6 +14,9 @@ goto custom_exit
 
 :load_VRM
 sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO
+
+:load_GANDALF
+sanboot --no-describe http://nas.thuis.loc/boot/GANDALF.ISO
 
 :load_WDS
 set wdsserver:ipv4 192.168.200.20
