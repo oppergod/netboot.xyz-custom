@@ -13,15 +13,19 @@ goto ${choice}
 goto custom_exit
 
 :load_VRM
-sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO
+sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO ||
+goto custom
 
 :load_GANDALF
-sanboot --no-describe http://nas.thuis.loc/boot/GANDALF.ISO
+imgfetch http://nas.thuis.loc/boot/GANDALF.ISO
+boot memdisk iso raw ||
+goto custom
 
 :load_WDS
 set wdsserver:ipv4 192.168.200.20
 set netX/next-server ${wdsserver}
-chain tftp://${wdsserver}/Boot\x64\wdsnbp.com
+chain tftp://${wdsserver}/Boot\x64\wdsnbp.com ||
+goto custom
 
 :custom_exit
 chain utils.ipxe
