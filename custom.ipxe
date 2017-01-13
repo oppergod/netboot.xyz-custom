@@ -17,7 +17,8 @@ sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO ||
 goto custom
 
 :load_GANDALF
-imgfetch http://nas.thuis.loc/boot/GANDALF.ISO && chain memdisk iso raw  ||
+imgfetch http://nas.thuis.loc/boot/GANDALF.ISO
+chain memdisk iso raw || 
 goto custom
 
 :load_WDS
