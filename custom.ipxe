@@ -18,7 +18,7 @@ goto custom
 
 :load_GANDALF
 imgfetch http://nas.thuis.loc/boot/GANDALF.ISO
-chain memdisk iso raw || 
+chain http://nas.thuis.loc/boot/memdisk iso raw || 
 goto custom
 
 :load_WDS
