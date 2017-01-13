@@ -17,7 +17,7 @@ sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO
 :load_WDS
 set wdsserver:ipv4 192.168.200.20
 set netX/next-server ${wdsserver}
-chain tftp://${wdsserver}/SMSBoot\x64\wdsmgfw.efi
+chain tftp://${wdsserver}/Boot\x64\wdsnbp.com
 
 :custom_exit
 chain utils.ipxe
