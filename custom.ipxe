@@ -17,8 +17,9 @@ sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO ||
 goto custom
 
 :load_GANDALF
-set util_path nas.thuis.loc/boot/GANDALF.ISO
-set util_file GANDALF.ISO
+set util_path nas.thuis.loc/gandalf.iso
+set util_file gandalf.iso
+set util_proto tftp
 goto boot_memdisk
 
 :load_WDS
@@ -30,7 +31,7 @@ goto custom
 :boot_memdisk
 imgfree
 kernel ${memdisk} iso raw
-initrd --name ${util_file} http://${util_path}
+initrd --name ${util_file} ${util_proto}://${util_path}
 boot
 
 :custom_exit
