@@ -4,6 +4,7 @@
 clear choice
 menu Oppergod's Menu
 item --gap Tools
+item --key L load_PESE_latest ${space} Start Windows PE SE [L]atest Build
 item --key P load_PESE ${space} Start Windows [P]E SE
 item --key W load_WDS ${space} Start [W]indows Deployment Services (WDS)
 item --key V load_VRM ${space} Start [V]eeam Recovery Image
@@ -11,6 +12,10 @@ choose choice || goto custom_exit
 echo ${cls}
 goto ${choice}
 goto custom_exit
+
+:load_PESE_latest
+sanboot -no-describe http://nas.thuis.loc/boot/winpese_latest.iso ||
+goto custom
 
 :load_PESE
 sanboot --no-describe http://nas.thuis.loc/boot/winpese.iso ||
