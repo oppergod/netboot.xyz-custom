@@ -6,6 +6,7 @@ menu Oppergod's Menu
 item --gap Tools
 item --key L load_PESE_latest ${space} Start Windows PE SE [L]atest Build
 item --key P load_PESE ${space} Start Windows [P]E SE
+item --key A load_Acronis ${space} Start Acronis True Image
 item --key W load_WDS ${space} Start [W]indows Deployment Services (WDS)
 item --key V load_VRM ${space} Start [V]eeam Recovery Image
 choose choice || goto custom_exit
@@ -19,6 +20,10 @@ goto custom
 
 :load_PESE
 sanboot --no-describe http://nas.thuis.loc/boot/winpese.iso ||
+goto custom
+
+:load_Acronis
+sanboot --no-describe http://nas.thuis.loc/boot/acronis.iso ||
 goto custom
 
 :load_VRM
