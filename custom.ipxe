@@ -7,6 +7,7 @@ item --gap Tools
 item --key L load_PESE_latest ${space} Start Windows PE SE [L]atest Build
 item --key P load_PESE ${space} Start Windows [P]E SE
 item --key A load_Acronis ${space} Start Acronis True Image
+item --key E load_ESX65_install ${space} Install ESX 6.5 to local disk
 item --key W load_WDS ${space} Start [W]indows Deployment Services (WDS)
 item --key V load_VRM ${space} Start [V]eeam Recovery Image
 choose choice || goto custom_exit
@@ -28,6 +29,10 @@ goto custom
 
 :load_VRM
 sanboot --no-describe http://nas.thuis.loc/boot/VRM.ISO ||
+goto custom
+
+:load_ESX65_install
+sanboot --no-describe http://nas.thuis.loc/boot/esx65-custom.iso
 goto custom
 
 :load_WDS
