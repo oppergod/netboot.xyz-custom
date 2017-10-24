@@ -4,7 +4,7 @@
 clear choice
 menu Oppergod's Menu
 item --gap Tools
-item --key L load_PESE_latest ${space} Start Windows PE SE [L]atest Build
+item --key M load_MC @{space} Start [M]ediCat
 item --key P load_PESE ${space} Start Windows [P]E SE
 item --key A load_Acronis ${space} Start Acronis True Image
 item --key E load_ESX65_install ${space} Install ESX 6.5 to local disk
@@ -16,8 +16,8 @@ echo ${cls}
 goto ${choice}
 goto custom_exit
 
-:load_PESE_latest
-sanboot --no-describe http://nas.thuis.loc/boot/winpese_latest.iso ||
+:load_MC
+sanboot --no-describe http://nas.thuis.loc/boot/medicat.iso ||
 goto custom
 
 :load_PESE
